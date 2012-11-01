@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<article class="post">
+
+	<h2 class="title"><a href="{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h2>
+
+	<div class="date">
+		{{ page.date | date: "%d %b %Y" }}
+	</div>
+
+	<div class="entry-content">
+		{{ content }}
+	</div>
+
+	{% if site.related_posts.length > 0 %}
+		<div id="related">
+			{% for post in site.posts %}
+			<div class="post">
+				{{ post.content }}
+				<span class="date">{{ post.date | date_to_string }} <a href="{{ post.url }}">[link]</a></span>
+			</div>
+			{% endfor %}
+		</div>
+	{% endif %}
+
+</article>
